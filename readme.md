@@ -6,7 +6,7 @@ _‼ IMPORTANT ‼ This project tries to be a small application just to understa
 ## Starting 🚀
 
 _If you want to use the repository you can clone it and You need SQL database, you can use the database which I use for testing, and connect to it. 
-You must know that the project has a model to which you have to adapt the database, otherwise it may not work.
+This proyect have a custom admin panel, login and register form, redirects of forbbiden routes etc.
 You can modify the settings of django proyect in settings.py_
 
 
@@ -27,10 +27,8 @@ _And done, you can launch the app._
 
 In the project directory, you can run:
 ### 
-### `python manage.py runserver`
-### For test:
-### user: user
-### pass: admin4132
+### ```python manage.py runserver```
+### For test ---> user:user - pass: admin4132
 
 _Runs the app in the development mode.<br />
 `python manage.py runserver`
