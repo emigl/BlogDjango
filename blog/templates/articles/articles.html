@@ -1,0 +1,42 @@
+{% for article in articles %}
+{% if article.public == True %}
+<div class="articles">
+    <article class="article-item">
+    
+        <div class="image">
+            <img src="https://picsum.photos/300/300" />
+        </div>
+        
+        
+        <div class="data">
+            <h2>
+                <a href="{% url 'detail' article.id %}">{{article.title}}</a>
+            </h2>
+            <p>
+                {% for category in article.categories.all %}
+                <a class="category" href={% url 'categories' category.id %}>{{category.name}}</a>
+
+                <!-- Esto para agregar un guión entre cada categoria
+                   {% if forloop.counter < article.categories.all|length %}
+                    {{'-'}}
+                    {% endif %}
+                -->
+                {% endfor %}
+            </p>
+            <span class="date">
+                {{article.user.first_name}} {{article.user.last_name}}
+                |
+                {{article.created_at}}
+            </span>
+            <p>
+                {{article.content|safe}}
+            </p>
+
+        </div>
+
+    </article>
+    <br>
+</div>
+
+{% endif %}
+{% endfor %}

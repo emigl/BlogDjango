@@ -1,0 +1,21 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block title2 %} {{title2}} {% endblock %}
+
+{% block content%}
+<h1>{{title}}</h1>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-success">
+                {{message}}
+            </div>
+
+        {% endfor %} 
+    {% endif %}
+    
+        <h2 class="welcome-message">Welcome! Now you can view the rest of the webpage in the bar navegation. I recommend the "Categories" section.</h2>
+
+{% endblock %}

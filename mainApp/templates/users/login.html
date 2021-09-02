@@ -1,0 +1,35 @@
+{% extends 'layouts/layout.html' %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block title2 %} {{title}} {% endblock %}
+
+{% block content%}
+<h1>{{title}}</h1>
+{% if messages %}
+{% for message in messages %}
+
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+    <div class="alert alert-warning">
+        {{message}}
+    </div>
+    {% endif %}
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+    <div class="alert alert-success">
+        {{message}}
+    </div>
+    {% endif %}
+{% endfor %} 
+{% endif %}
+<form method="POST" action="">
+    {% csrf_token %}
+    <label for="username">Username:</label>
+    <input type="text" name="username" />
+
+    <label for="username">Password:</label>
+    <input type="password" name="password">
+
+    <input type="submit" value="Sign Up" />
+</form>
+
+{% endblock %}

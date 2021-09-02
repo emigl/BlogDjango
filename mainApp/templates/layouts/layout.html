@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+
+<body>
+    <header>
+        <div id="logo">
+           
+            <img src="{% static 'images/django.png' %}" />
+            <h1>Blog Django</h1>
+
+        </div>
+
+    </header>
+    <nav>
+        <ul>
+            {% if user.username %}
+            <li>
+                <a href="{% url 'list_articles' %}">Categories</a>
+                <ul>
+                    {% for category in categories %}
+                    <li>
+                        <a href="{% url 'categories' category.0 %}">{{category.1}}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% for page in pages %}
+            <li>
+                <a href="{% url 'page' page.2 %}">{{page.1}}</a>
+            </li>
+            {% endfor %}
+            <li>
+                <a href="{% url 'logout' %}">Logout</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{% url 'register' %}">Register</a>
+            </li>
+            <li>
+                <a href="{% url 'login' %}">Login</a>
+            </li>
+            {% endif %}
+        </ul>
+
+    </nav>
+
+    <div id="content">
+        <div class="box">
+
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Made by <strong>emigl</strong> {% now "Y" %} &copy; {% now "d/m/Y" %} </p>
+    </footer>
+</body>
+
+</html>
