@@ -7,7 +7,8 @@ _‼ IMPORTANT ‼ This project tries to be a small application just to understa
 
 _If you want to use the repository you can clone it and You need SQL database, you can use the database which I use for testing, and connect to it. 
 This proyect have a custom admin panel, login and register form, redirects of forbbiden routes etc.
-You can modify the settings of django proyect in settings.py_
+You can modify the settings of django proyect in settings.py
+### In process: Create articles and categories according to the user with which the user logs in _
 
 
 ### Pre-requisites 📋
